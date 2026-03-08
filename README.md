@@ -29,11 +29,15 @@
 
 ## 📦 安装说明
 
-### 方式一：直接运行 EXE（推荐）
+### 方式一：下载可执行文件（推荐）
 
-1. 前往 [Releases](https://github.com/Evenszhou/snake-game/releases) 页面
-2. 下载最新的 `snake-game-win.zip`
-3. 解压后运行 `snake_game.exe`
+前往 [Releases](https://github.com/Evenszhou/snake-game/releases) 页面下载对应平台版本：
+
+- **Windows**: `snake-game-windows.zip` → 解压后运行 `snake_game.exe`
+- **macOS**: `snake-game-macos.tar.gz` → 解压后运行 `snake_game`
+- **Linux**: `snake-game-linux.tar.gz` → 解压后运行 `snake_game`
+
+> 💡 **提示**: 如Releases页面暂无文件，请按照下方"如何发布"章节操作触发自动构建
 
 ### 方式二：从源码运行
 
@@ -110,11 +114,11 @@ snake-game/
 ├── requirements.txt       # 依赖列表
 ├── README.md             # 项目文档
 ├── .gitignore            # Git 忽略文件
+├── LICENSE               # MIT 许可证
 ├── highscore.txt         # 最高分记录（运行时生成）
-├── snake_game.spec       # PyInstaller 配置
-├── build/                # 打包临时文件
-└── dist/                 # 打包输出目录
-    └── snake_game.exe    # 可执行文件
+└── .github/
+    └── workflows/
+        └── build.yml     # GitHub Actions 自动构建配置
 ```
 
 ## 🎯 游戏截图
@@ -158,6 +162,34 @@ snake-game/
 ## 📧 联系方式
 
 项目地址: [https://github.com/Evenszhou/snake-game](https://github.com/Evenszhou/snake-game)
+
+## 🚀 如何发布新版本
+
+本项目使用 GitHub Actions 自动构建多平台可执行文件。
+
+### 发布流程
+
+1. **更新代码并提交**
+```bash
+git add .
+git commit -m "描述你的更改"
+git push
+```
+
+2. **创建版本标签**
+```bash
+git tag v1.0.0  # 使用语义化版本号
+git push origin v1.0.0
+```
+
+3. **等待自动构建**
+   - GitHub Actions 会自动构建 Windows/macOS/Linux 三个版本
+   - 构建完成后会在 Releases 页面生成发布包
+   - 通常需要 5-10 分钟
+
+4. **下载使用**
+   - 前往 [Releases](https://github.com/Evenszhou/snake-game/releases) 页面
+   - 下载对应平台的可执行文件
 
 ---
 
